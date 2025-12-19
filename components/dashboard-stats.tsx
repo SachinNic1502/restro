@@ -57,10 +57,10 @@ export function DashboardStats() {
   const getStats = () => {
     if (!analytics || !tables) {
       return [
-        { title: "Total Revenue", value: "₹0", change: "Loading...", icon: DollarSign, trend: "neutral" as const },
-        { title: "Orders Today", value: "0", change: "Loading...", icon: ShoppingCart, trend: "neutral" as const },
+        { title: "Total Revenue", value: "₹0", change: "Loading...", icon: DollarSign, trend: "up" as const },
+        { title: "Orders Today", value: "0", change: "Loading...", icon: ShoppingCart, trend: "up" as const },
         { title: "Active Tables", value: "0/0", change: "Loading...", icon: Users, trend: "neutral" as const },
-        { title: "Avg Order Value", value: "₹0", change: "Loading...", icon: TrendingUp, trend: "neutral" as const },
+        { title: "Avg Order Value", value: "₹0", change: "Loading...", icon: TrendingUp, trend: "down" as const },
       ]
     }
 
