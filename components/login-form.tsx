@@ -87,7 +87,7 @@ export function LoginForm() {
             {loading ? "Signing in..." : "Sign In"}
           </Button>
         </form>
-        <div className="mt-6 pt-6 border-t">
+        {/* <div className="mt-6 pt-6 border-t">
           <p className="text-sm text-muted-foreground text-center mb-3">Demo Accounts:</p>
           <div className="space-y-2 text-xs">
             <div className="p-3 rounded bg-muted">
@@ -115,7 +115,7 @@ export function LoginForm() {
               <div className="text-muted-foreground">Chef Vijay</div>
             </div>
           </div>
-        </div>
+        </div> */}
       </CardContent>
     </Card>
   )
