@@ -12,7 +12,7 @@ const staffSchema = new mongoose.Schema({
 }, { timestamps: true })
 
 // Hash password before saving
-staffSchema.pre("save", async function(next) {
+staffSchema.pre("save", async function(next: any) {
   if (!this.isModified("password")) return next()
   try {
     const salt = await bcrypt.genSalt(10)

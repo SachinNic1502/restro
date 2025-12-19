@@ -13,7 +13,7 @@ export interface Order {
   orderNo: string
   tableNumber?: string
   items: OrderItem[]
-  status: "pending" | "preparing" | "ready" | "served" | "completed"
+  status: "pending" | "preparing" | "ready" | "served" | "completed" | "cancelled"
   total: number
   createdAt: Date
   servedAt?: Date

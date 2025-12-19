@@ -160,7 +160,7 @@ async function seedDatabase() {
     
   } catch (error) {
     console.error("❌ Error seeding database:", error)
-    if (error.message.includes("MONGODB_URI")) {
+    if (error instanceof Error && error.message.includes("MONGODB_URI")) {
       console.log("\n💡 Make sure MongoDB is running and MONGODB_URI is set in .env.local")
     }
     process.exit(1)

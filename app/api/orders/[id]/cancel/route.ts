@@ -34,7 +34,7 @@ function serializeOrder(doc: any) {
   }
 }
 
-export async function POST(request: Request, { params }: { params: { id: string } }) {
+export async function POST(request: Request, { params }: { params: Promise<{ id: string }> }) {
   const authError = requireRole(request as any, ["waiter", "admin"])
   if (authError) return authError
 
@@ -50,7 +50,7 @@ export async function POST(request: Request, { params }: { params: { id: string 
     }
 
     const { reason } = parsed.data
-    const orderId = params.id
+    const { id: orderId } = await params
 
     await connectToDatabase()
     const existing = await OrderModel.findOne({ orderNo: orderId })
@@ -93,7 +93,8 @@ export async function POST(request: Request, { params }: { params: { id: string 
     publishRealtime("order_updated", serialized)
     return NextResponse.json({ success: true, order: serialized })
   } catch (err) {
-    Logger.error("Order cancel error", { orderId: params.id, err })
+    const { id: orderId } = await params
+    Logger.error("Order cancel error", { orderId, err })
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }

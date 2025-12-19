@@ -1,6 +1,6 @@
 import mongoose, { Schema, type Model } from "mongoose"
 
-export type OrderStatus = "pending" | "preparing" | "ready" | "served" | "completed"
+export type OrderStatus = "pending" | "preparing" | "ready" | "served" | "completed" | "cancelled"
 export type OrderType = "dine-in" | "takeout"
 export type PaymentMethod = "cash" | "card" | "upi" | "other"
 

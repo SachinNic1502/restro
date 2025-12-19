@@ -30,7 +30,7 @@ const CategorySchema: Schema = new Schema({
 })
 
 // Update the updatedAt field on save
-CategorySchema.pre("save", function (next) {
+CategorySchema.pre("save", function (next: any) {
   this.updatedAt = new Date()
   next()
 })
